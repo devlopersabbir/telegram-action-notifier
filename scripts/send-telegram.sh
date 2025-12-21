@@ -28,7 +28,6 @@ fi
 
 FULL_MESSAGE="$MESSAGE
 
-
 $GITHUB_INFO"
 
 for i in $(seq 1 "$RETRY_COUNT"); do
