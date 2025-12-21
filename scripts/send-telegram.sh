@@ -3,8 +3,8 @@
 set -e
 
 # source constants
-source constants/config.sh
-source constants/info.sh
+source "$GITHUB_ACTION_PATH/constants/config.sh"
+source "$GITHUB_ACTION_PATH/constants/info.sh"
 # state variables
 required_vars=(BOT_TOKEN CHAT_ID)
 missing_vars=()
