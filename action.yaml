@@ -1,0 +1,30 @@
+name: "Telegram Failure Notifier"
+description: "Send Telegram message when GitHub Actions job fails"
+author: "Sabbir Hossain Shuvo"
+
+inputs:
+  bot_token:
+    description: "Telegram Bot Token"
+    required: true
+
+  chat_id:
+    description: "Telegram Chat ID"
+    required: true
+
+  message:
+    description: "Message to send"
+    default: "❌ GitHub Actions job failed"
+    required: false
+
+runs:
+  using: "composite"
+  steps:
+    - name: Send Telegram Notification
+      shell: bash
+      env:
+        BOT_TOKEN: ${{ inputs.bot_token }}
+        CHAT_ID: ${{ inputs.chat_id }}
+        MESSAGE: ${{ inputs.message }}
+      run: |
+        chmod +x scripts/send-telegram.sh
+        scripts/send-telegram.sh
