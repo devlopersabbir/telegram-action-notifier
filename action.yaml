@@ -16,6 +16,10 @@ inputs:
     default: "❌ GitHub Actions job failed"
     required: false
 
+branding:
+  icon: "message-square"
+  color: "red"
+
 runs:
   using: "composite"
   steps:
