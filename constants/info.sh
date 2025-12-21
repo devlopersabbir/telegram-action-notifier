@@ -8,7 +8,9 @@ export BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
 export COMMIT_HASH=$(git rev-parse HEAD)
 
 # Get the current commit message
-export COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+# export COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+# Get actual commit message not id
+export COMMIT_MESSAGE=$(git log -1 --pretty=%B | sed 's/\(^.*\)\(\[.*\]\)\(.*\)/\3/')
 
 # Get the current commit author
 export COMMIT_AUTHOR=$(git log -1 --pretty=%an)
@@ -36,10 +38,10 @@ export COMMIT_AUTHOR_EMAIL=$(git log -1 --pretty=%ae)
 
 # Get the current
 export GITHUB_INFO=$(cat <<EOF
-Actor: $GITHUB_ACTOR
-Branch: <a href="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/tree/$GITHUB_REF_NAME">$GITHUB_REF_NAME</a>
-Commit: <a href="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/commit/$GITHUB_SHA">$GITHUB_SHA</a>
-Repository: <a href="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY">$GITHUB_REPOSITORY</a>
+👨‍💻 Commit Author: <a href="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/commits?author=$COMMIT_AUTHOR">$COMMIT_AUTHOR</a> 
+🌱 Branch: <a href="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/tree/$GITHUB_REF_NAME">$GITHUB_REF_NAME</a>
+📝 Commit: <a href="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/commit/$GITHUB_SHA">$COMMIT_MESSAGE</a>
+📁 Repository: <a href="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY">$GITHUB_REPOSITORY</a>
 EOF
 )
 export DEFAULT_MESSAGE="🚨 <b>Deployment Failed</b>"
