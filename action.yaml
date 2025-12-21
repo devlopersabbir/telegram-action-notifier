@@ -51,4 +51,4 @@ runs:
         PARSE_MODE: ${{ inputs.parse_mode }}
       run: |
         chmod +x "$GITHUB_ACTION_PATH/scripts/send-telegram.sh"
-        "$GITHUB_ACTION_PATH/scripts/send-telegram.sh"
+        bash "$GITHUB_ACTION_PATH/scripts/send-telegram.sh"
