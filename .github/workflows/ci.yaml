@@ -16,7 +16,7 @@ jobs:
       - name: Send Telegram Notification
         ## if: failure()
         if: always()
-        uses: devlopersabbir/telegram-action-notifier@v1
+        uses: devlopersabbir/telegram-action-notifier@v1.0.0
         with:
           bot_token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           chat_id: ${{ secrets.TELEGRAM_CHAT_ID }}
