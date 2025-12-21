@@ -1,3 +1,4 @@
+---
 name: "Telegram Failure Notifier"
 description: "Send Telegram message when GitHub Actions job fails"
 author: "Sabbir Hossain Shuvo"
@@ -16,7 +17,6 @@ inputs:
     default: "❌ GitHub Actions job failed"
     required: false
 
-  # Optional inputs
   retry_count:
     description: "Number of retries"
     default: "2"
@@ -29,7 +29,7 @@ inputs:
 
   parse_mode:
     description: "Parse mode"
-    default: "HTML" # "HTML" or "Markdown"
+    default: "HTML"
     required: false
 
 branding:
