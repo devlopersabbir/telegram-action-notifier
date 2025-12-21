@@ -61,7 +61,7 @@ jobs:
 
       - name: Notify Telegram on Failure
         if: failure()
-        uses: devlopersabbir/telegram-failure-notifier@v1
+        uses: devlopersabbir/telegram-action-notifier@v1
         with:
           bot_token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           chat_id: ${{ secrets.TELEGRAM_CHAT_ID }}
