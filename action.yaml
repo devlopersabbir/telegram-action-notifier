@@ -50,5 +50,5 @@ runs:
         RETRY_DELAY: ${{ inputs.retry_delay }}
         PARSE_MODE: ${{ inputs.parse_mode }}
       run: |
-         chmod +x "$GITHUB_ACTION_PATH/scripts/send-telegram.sh"
+        chmod +x "$GITHUB_ACTION_PATH/scripts/send-telegram.sh"
         "$GITHUB_ACTION_PATH/scripts/send-telegram.sh"
