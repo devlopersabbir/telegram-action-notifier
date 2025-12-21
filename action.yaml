@@ -16,6 +16,22 @@ inputs:
     default: "❌ GitHub Actions job failed"
     required: false
 
+  # optionals inputs
+  retry_count:
+    description: "Number of retries"
+    default: "2"
+    required: false
+
+  retry_delay:
+    description: "Delay between retries (in seconds)"
+    default: "5"
+    required: false
+
+  parse_mode:
+    description: "Parse mode"
+    default: "HTML" # "HTML" or "Markdown"
+    required: false
+
 branding:
   icon: "message-square"
   color: "red"
@@ -29,6 +45,10 @@ runs:
         BOT_TOKEN: ${{ inputs.bot_token }}
         CHAT_ID: ${{ inputs.chat_id }}
         MESSAGE: ${{ inputs.message }}
+        # optionals inputs
+        RETRY_COUNT: ${{ inputs.retry_count }}
+        RETRY_DELAY: ${{ inputs.retry_delay }}
+        PARSE_MODE: ${{ inputs.parse_mode }}
       run: |
         chmod +x scripts/send-telegram.sh
         scripts/send-telegram.sh
