@@ -16,7 +16,7 @@ inputs:
     default: "❌ GitHub Actions job failed"
     required: false
 
-  # optionals inputs
+  # Optional inputs
   retry_count:
     description: "Number of retries"
     default: "2"
@@ -45,7 +45,7 @@ runs:
         BOT_TOKEN: ${{ inputs.bot_token }}
         CHAT_ID: ${{ inputs.chat_id }}
         MESSAGE: ${{ inputs.message }}
-        # optionals inputs
+        # Optional inputs
         RETRY_COUNT: ${{ inputs.retry_count }}
         RETRY_DELAY: ${{ inputs.retry_delay }}
         PARSE_MODE: ${{ inputs.parse_mode }}
